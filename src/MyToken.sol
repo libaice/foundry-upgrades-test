@@ -6,7 +6,6 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
-import {console as c1} from "forge-std/Console.sol";
 
 contract MyToken is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPSUpgradeable {
     string public greeting;
@@ -30,8 +29,6 @@ contract MyToken is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPSUpg
         onlyOwner
         override
     {
-        c1.log('owner: %s', owner());
-        c1.log('msg sender: %s', _msgSender());
 
     }
 

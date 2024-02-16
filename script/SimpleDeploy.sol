@@ -10,7 +10,10 @@ import "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.so
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
 contract MyTokenScript is Script {
-  function setUp() public {}
+  function setUp() public {
+    vm.createSelectFork("https://rpc.sepolia.org");
+   
+  }
 
   function run() public {
 
@@ -20,12 +23,13 @@ contract MyTokenScript is Script {
     // Options opts = new Options();
     // opts.setUsePlatformDeploy(true);
 
-    vm.startBroadcast();
+    uint256 deployerPrivateKey = vm.envUint("PRI_KEY");
+    vm.startBroadcast(deployerPrivateKey);
     
     MyContract instance = new MyContract(123);
     instance.initialize('hello', msg.sender);
 
-    instance = new MyToken();
+    // instance = new MyToken();
 
     vm.stopBroadcast();
   }

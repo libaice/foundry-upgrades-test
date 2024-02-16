@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Utils.sol";
 import "./Options.sol";
 
 import "forge-std/Vm.sol";
-import {console} from "forge-std/Console.sol";
+import {console} from "forge-std/console.sol";
 
 library Upgrades {
   address constant CHEATCODE_ADDRESS = 0x7109709ECfa91a80626fF3989D68f67F5b1DD12D;
